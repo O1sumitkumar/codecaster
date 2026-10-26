@@ -1,0 +1,21 @@
+{
+  "name": "codecaster",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "CodeCaster — Twitch chat drives sandboxed Codex patches for a live stream overlay",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "simulate": "node scripts/simulate.mjs",
+    "test": "node --test test/**/*.test.js"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

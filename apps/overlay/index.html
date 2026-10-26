@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeCaster Overlay</title>
+    <link rel="stylesheet" href="overlay.css" />
+  </head>
+  <body>
+    <div id="panel" class="panel idle">
+      <header>
+        <span class="logo">CodeCaster</span>
+        <span id="status-dot" class="dot gray"></span>
+      </header>
+      <section id="command" class="command">Waiting for !ship / !fix…</section>
+      <section id="meta" class="meta"></section>
+      <pre id="diff" class="diff"></pre>
+      <div id="actions" class="actions hidden">
+        <button type="button" id="accept" class="accept">Accept</button>
+        <button type="button" id="reject" class="reject">Reject</button>
+      </div>
+      <footer id="footer" class="footer"></footer>
+    </div>
+    <script src="overlay.js"></script>
+  </body>
+</html>

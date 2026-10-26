@@ -1,0 +1,36 @@
+import { useEffect, useState } from "react";
+
+export default function App() {
+  const [count, setCount] = useState(0);
+  const [health, setHealth] = useState("…");
+
+  useEffect(() => {
+    fetch("/api/health")
+      .then((r) => r.json())
+      .then((d) => setHealth(d.status))
+      .catch(() => setHealth("offline"));
+  }, []);
+
+  return (
+    <div className="app" data-testid="toy-app">
+      <h1>CodeCaster Toy</h1>
+      <p className="tagline">Chat can ship tiny patches to this app live.</p>
+      <div className="counter" data-testid="counter">{count}</div>
+      <div className="actions">
+        <button type="button" onClick={() => setCount((c) => c + 1)}>
+          Bump
+        </button>
+        <button
+          type="button"
+          className="secondary"
+          onClick={() => setCount(0)}
+        >
+          Reset
+        </button>
+      </div>
+      <div className="status-pill" data-testid="api-health">
+        API: {health}
+      </div>
+    </div>
+  );
+}

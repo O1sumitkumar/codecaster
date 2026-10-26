@@ -1,0 +1,15 @@
+diff --git a/src/index.css b/src/index.css
+--- a/src/index.css
++++ b/src/index.css
+@@ -52,6 +52,10 @@ button.secondary {
+   color: #0f172a;
+ }
+ 
++.status-pill.shipped {
++  background: #dbeafe;
++  color: #1d4ed8;
++}
++
+ .status-pill {
+   display: inline-block;
+   margin-top: 1.25rem;
