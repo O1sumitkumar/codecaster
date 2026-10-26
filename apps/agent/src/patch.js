@@ -1,6 +1,7 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { buildMockFixDiff, buildMockShipDiff } from "./mockDiff.js";
 import { validatePatch } from "./validate.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -51,11 +52,8 @@ Target repo is a Vite React app. Prefer editing src/App.jsx or src/index.css onl
 }
 
 export async function loadMockPatch(kind) {
-  const fixture =
-    kind === "fix"
-      ? path.join(__dirname, "../fixtures/mock-fix.diff")
-      : path.join(__dirname, "../fixtures/mock-ship.diff");
-  const diff = await readFile(fixture, "utf8");
+  const diff =
+    kind === "fix" ? await buildMockFixDiff() : await buildMockShipDiff();
   const validation = validatePatch(diff);
   if (!validation.ok) {
     throw new Error(validation.error);
@@ -66,6 +64,15 @@ export async function loadMockPatch(kind) {
     ...validation,
     mock: true,
   };
+}
+
+/** Used by tests to keep checked-in fixtures aligned with toy sources. */
+export async function readFixtureDiff(kind) {
+  const fixture =
+    kind === "fix"
+      ? path.join(__dirname, "../fixtures/mock-fix.diff")
+      : path.join(__dirname, "../fixtures/mock-ship.diff");
+  return readFile(fixture, "utf8");
 }
 
 function stripFences(text) {

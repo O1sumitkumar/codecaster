@@ -1,8 +1,8 @@
 diff --git a/src/index.css b/src/index.css
+index 58d5f9f..517145f 100644
 --- a/src/index.css
 +++ b/src/index.css
-@@ -56,6 +56,10 @@ button.secondary {
-   background: #e2e8f0;
+@@ -58,6 +58,11 @@ button.secondary {
    color: #0f172a;
  }
  
