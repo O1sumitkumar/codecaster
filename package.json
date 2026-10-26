@@ -10,6 +10,7 @@
   "scripts": {
     "dev": "node scripts/dev.mjs",
     "simulate": "node scripts/simulate.mjs",
+    "sync-fixtures": "node scripts/sync-fixtures.mjs",
     "test": "node --test test/**/*.test.js"
   },
   "devDependencies": {

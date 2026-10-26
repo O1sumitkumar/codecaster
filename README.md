@@ -29,11 +29,11 @@ npm run dev
 
 ### Simulate without Twitch
 
-With `npm run dev` running (or bot + agent only for a minimal path):
-
 ```bash
 npm run simulate
 ```
+
+`simulate` boots bot + agent if they are not already running, then restores `apps/toy` sources after Accept so you can re-run it.
 
 This posts a mock `!ship` command, expects a **green** smoke result, and Accepts the patch.
 
